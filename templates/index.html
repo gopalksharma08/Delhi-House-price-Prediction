@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+
+    <head>
+
+        <title>Delhi House Price Prediction</title>
+    <style>
+
+  input[type=text], select, textarea
+ {
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical
+ }
+
+
+
+  input[type=submit]
+ {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+   }
+
+/* When moving the mouse over the submit button, add a darker green color */
+     input[type=submit]:hover
+   {
+    background-color: #45a049;
+    }
+
+
+.container {
+  border-radius: 5px;
+  background-color: pink;
+  padding: 20px;
+}
+
+#submit{
+	align-content: center;
+	background: lightgreen;
+	border: none;
+	padding: 5px;
+	border-radius: 10px;
+
+
+	}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+body{
+
+	text-align:center;
+	border: 7px solid black;
+	background-color:lightblue;
+
+    }
+ p{
+            font-family:verdana;
+            font-size: 15px;
+          color: green;
+  }
+h3 {
+  background-color: green;
+}
+    </style>
+
+    </head>
+
+    <body>
+
+      <div class="container">
+
+      <h1>Delhi House Price Prediction</h1>
+     <form action="{{ url_for('predict') }}" method="POST">
+
+      <p>Area of House:<input class="form-input" type="text" name="Area" placeholder="Area of House",size="10" required= 'required'></p>
+
+      <p>Number of BHK:<input  type="text" size="10" name="BHK" placeholder="Number of BHK" required= 'required'></p>
+
+      <p>Number of Bathroom:<input  type="text" size="10" name="Bathroom" placeholder="Number of Bathroom" required= 'required' ></p>
+
+      <p>Number of Parking:<input  type="text" size="10" name="Parking" placeholder="Number of Parking" required= 'required' ></p>
+
+      <p><label for="Furnishing">Furnishing:</label>
+          <select id="Furnishing" name="Furnishing">
+          <option value='Furnished'>Furnished</option>
+          <option value='Semi Furnished'>Semi Furnished</option>
+          <option value='Un Furnished'>Un Furnished</option>
+          </select></p>
+
+      <p><label for="Transaction of Property">Transaction of Property:</label>
+          <select id="Transaction" name="Transaction">
+          <option value=0>New Property</option>
+          <option value=1>Resale</option>
+	  </select></p>
+
+	<p><label for="Type of Property">Type of Property:</label>
+          <select id="Type" name="Type">
+          <option value=0>Apartment</option>
+          <option value=1>Builder House</option>
+	  </select></p>
+
+
+        <p><input type="submit" class="tn btn-primary btn-block btn-large" value="Predict",size="10"></p>
+    </form>
+
+	<br><h1> Your House price is: {{ prediction_texts }} </h1></br>
+
+	<footer> Made By Gopal Sharma</footer>
+
+
+    	</div>
+
+
+
+
+
+    </body>
+</html>
