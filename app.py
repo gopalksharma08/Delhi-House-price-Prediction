@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import requests
 import numpy as np
 import pickle
-import xgboost
 
 app = Flask(__name__)
 model = pickle.load(open("houseprice.pkl", "rb"))
